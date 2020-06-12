@@ -66,7 +66,10 @@ const useStyles = makeStyles(theme => ({
         marginLeft: "50px",
         marginRight: "25px",
         height: '45px',
-        ...theme.typography.estimate
+        ...theme.typography.estimate,
+        "&:hover": {
+            backgroundColor: theme.palette.secondary.light
+        }
     },
     logoContainer: {
         padding: 0,
@@ -151,7 +154,7 @@ export default function Header({value, setValue, selectedIndex, setSelectedIndex
     const menuOptions = [
         {name: 'Services', link: '/services', activeIndex: 1, selectedIndex: 0},
         {name: 'Custome Software Development', link: '/customsoftware', activeIndex: 1, selectedIndex: 1},
-        {name: 'Mobile App Development', link: '/mobileapps', activeIndex: 1, selectedIndex: 2},
+        {name: 'iOS/Android App Development', link: '/mobileapps', activeIndex: 1, selectedIndex: 2},
         {name: 'Websites Development', link: '/websites', activeIndex: 1, selectedIndex: 3},
     ];
 
