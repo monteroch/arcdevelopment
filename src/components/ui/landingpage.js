@@ -236,7 +236,7 @@ export default function LandingPage(props){
                 </Grid>
             </Grid>
 
-            <Grid item>{/*-----Website Block----- */}
+            <Grid item>{/*-----Revolution Block----- */}
                 <Grid container style={{height: '100em', marginTop: "12em"}} alignItems="center" justify="center">
                     <Card className={classes.revolutionCard}>
                         <CardContent>
