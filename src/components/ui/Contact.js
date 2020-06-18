@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -123,6 +124,12 @@ export default function Contact(props){
         }
     }
 
+    const onConfirm = () => {
+        axios.get('https://us-central1-material-ui-app-b769f.cloudfunctions.net/sendMail')
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    };
+
     return(
         <Grid container direction="row">
         
@@ -165,10 +172,10 @@ export default function Contact(props){
                         </Grid>
                         <Grid item container justify="center" style={{marginTop: "2em"}}>
                             <Button 
-                                // disabled={name.length === 0 || message.length === 0 || phone.length === 0 || email.length === 0} 
+                                disabled={name.length === 0 || message.length === 0 || phone.length === 0 || email.length === 0} 
                                 variant="contained" 
                                 className={classes.sendButton}
-                                onClick={() => setOpen(true)}
+                                onClick={onConfirm}
                             >
                                 Send Message
                                 <img src={airplane} alt="paper airplane" style={{marginLeft: "1em"}}/>
@@ -254,3 +261,5 @@ export default function Contact(props){
     )
 
 }
+
+//Video 118
