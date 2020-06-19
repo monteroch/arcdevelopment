@@ -12,6 +12,7 @@ import Websites from './ui/Websites';
 import Revolution from './ui/Revolution';
 import About from './ui/About';
 import Contact from './ui/Contact';
+import Estimate from './ui/Estimate';
 
 function App() {
 
@@ -31,7 +32,7 @@ function App() {
           <Route exact path="/revolution" render={(props) => <Revolution setValue={setValue} setSelectedIndex={setSelectedIndex}/>}/>
           <Route exact path="/aboutus" render={(props) => <About setValue={setValue}/>}/>
           <Route exact path="/contact" render={() => <Contact setValue={setValue} setSelectedIndex={setSelectedIndex}/>}/>
-          <Route exact path="/estimate" component={() => <div>estimate</div>}/>
+          <Route exact path="/estimate" render={() => <Estimate setValue={setValue} setSelectedIndex={setSelectedIndex}/>}/>
         </Switch>
         <Footer value={value} setValue={setValue} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex}/>
       </BrowserRouter>

@@ -11,19 +11,50 @@ const transporter = nodemailer.createTransport({
     auth: {user:config.user.email, pass:config.user.password}
 });
 
-let mailOptions = {from: 'Arc Development', to: "monteroalfredo08@gmail.com", subject: "Testing nodemailer", text: 'Test successful'}
+let mailOptions = {
+    from: 'Arc Development', 
+};
 
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 exports.sendMail = functions.https.onRequest((request, response) => {
     cors(request, response, () => {
+        const {name, email, phone, message} = request.query;
+
+        mailOptions = {
+            ...mailOptions, 
+            to: "test@test.com", 
+            subject: "Message received!", 
+            html: `
+                <p style="font-size": 16px>From: ${name}</p>
+                <p style="font-size": 16px>Email: ${email}</p>
+                <p style="font-size": 16px>Phone: ${phone}</p>
+                <p style="font-size": 16px>Message: ${message}</p>
+            `
+        };
+
         transporter.sendMail(mailOptions, error => {
             if(error){
                 response.send(error);
             }else{
                 response.send("Message sent successfully");
             }
-        })
+        });
+
+        mailOptions = {
+            ...mailOptions, 
+            to: email, 
+            subject: "We have received your message!", 
+            html: `
+                <p style="font-size": 16px>From: ${name}</p>
+                <p style="font-size": 16px>Email: ${email}</p>
+                <p style="font-size": 16px>Phone: ${phone}</p>
+                <p style="font-size": 16px>Message: ${message}</p>
+            `
+        };
+
+        transporter.sendMail(mailOptions);
+
     })
 });
