@@ -193,7 +193,7 @@ export default function Contact(props){
                                 <Typography variant="body1" style={{color: theme.palette.common.arcBlue, fontSize:"1rem"}}><a style={{textDecoration: 'none', color: 'inherit'}} href="mailto:zachary@email.com">zachary@email.com</a></Typography>
                             </Grid>
                         </Grid>
-                        <Grid item container direction="column" style={{maxWidth: "20em"}}>
+                        <Grid item container direction="column" style={{width: "20em"}}>
                             <Grid item style={{marginBottom: "0.5em"}}>
                                 <Textfield label="Name" id="name" fullWidth value={name} onChange={(event) => setName(event.target.value)}/>
                             </Grid>
@@ -204,7 +204,7 @@ export default function Contact(props){
                                 <Textfield label="Phone" id="phone" fullWidth value={phone} error={phoneHelper.length !== 0} helperText ={phoneHelper} onChange={onChange}/>
                             </Grid>
                         </Grid>
-                        <Grid item style={{maxWidth: "20em"}}>
+                        <Grid item style={{width: "20em"}}>
                             <Textfield InputProps={{disableUnderline: true}} value={message} fullWidth className={classes.message} id="message" multiline rows={10} onChange={((event) => setMessage(event.target.value))} />
                         </Grid>
                         <Grid item container justify="center" style={{marginTop: "2em"}}>
@@ -222,15 +222,15 @@ export default function Contact(props){
             </Grid>
 
             <Dialog open={open}
-                fullScreen={matchesXS}
+                fullScreen={matchesSM}
                 style={{zIndex: 1302}}
                 onClose={() => setOpen(false)} 
                 PaperProps={{
                     style: {
                         paddingTop: matchesXS ? "1em" : "5em", 
                         paddingBottom: matchesXS ? "1em" : "5em", 
-                        paddingLeft: matchesXS ? 0 : matchesSM ?  "5em" : matchesMD ? "10em" : "20em", 
-                        paddingRight: matchesXS ? 0 : matchesSM ?  "5em" : matchesMD ? "10em" : "20em"
+                        paddingLeft: matchesXS ? 0 : matchesSM ?  "5em" : matchesMD ? "15em" : "25em", 
+                        paddingRight: matchesXS ? 0 : matchesSM ?  "5em" : matchesMD ? "15em" : "25em"
                     }
                 }}
             >
@@ -239,7 +239,7 @@ export default function Contact(props){
                         <Grid item>
                             <Typography variant="h4" align="center" gutterBottom>Confirm Message</Typography>
                         </Grid>
-                        <Grid item container direction="column" style={{maxWidth: matchesXS ? "100%" : "20em"}}>
+                        <Grid item container direction="column" style={{width: matchesXS ? "100%" : "20em"}}>
                             <Grid item style={{marginBottom: "0.5em"}}>
                                 <Textfield label="Name" id="name" fullWidth value={name} onChange={(event) => setName(event.target.value)}/>
                             </Grid>
@@ -250,7 +250,7 @@ export default function Contact(props){
                                 <Textfield label="Phone" id="phone" fullWidth value={phone} error={phoneHelper.length !== 0} helperText ={phoneHelper} onChange={onChange}/>
                             </Grid>
                         </Grid>
-                        <Grid item style={{maxWidth: matchesXS ? "100%" : "20em"}}>
+                        <Grid item style={{width: matchesSM ? "100%" : "20em"}}>
                             <Textfield InputProps={{disableUnderline: true}} value={message} fullWidth className={classes.message} id="message" multiline rows={10} onChange={((event) => setMessage(event.target.value))} />
                         </Grid>
                     </Grid>
