@@ -205,7 +205,7 @@ export default function Contact(props){
                             </Grid>
                         </Grid>
                         <Grid item style={{width: "20em"}}>
-                            <Textfield InputProps={{disableUnderline: true}} value={message} fullWidth className={classes.message} id="message" multiline rows={10} onChange={((event) => setMessage(event.target.value))} />
+                            <Textfield InputProps={{disableUnderline: true}} value={message} fullWidth className={classes.message} id="message" placeholder="Tell us more about your project"  multiline rows={10} onChange={((event) => setMessage(event.target.value))} />
                         </Grid>
                         <Grid item container justify="center" style={{marginTop: "2em"}}>
                             <Button 
